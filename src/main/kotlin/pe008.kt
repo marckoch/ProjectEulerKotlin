@@ -1,3 +1,4 @@
+// https://projecteuler.net/problem=8
 fun main() {
     val numberWith1000digits = """
 73167176531330624919225119674426574742355349194934
@@ -25,12 +26,12 @@ fun main() {
     numberWith1000digits
         .windowed(13, 1)
 //        .also { println(it) }
-        .map { multiplyNumbers(it) }
+        .map { multiplyDigitsOf(it) }
         .maxOrNull()
         .let { println(it) }
 }
 
-fun multiplyNumbers(s: String): Long {
+fun multiplyDigitsOf(s: String): Long {
     return s
         .map { Character.getNumericValue(it).toLong() }
         .reduce { x, y -> x * y }
