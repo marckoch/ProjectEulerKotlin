@@ -1,4 +1,4 @@
-import java.math.BigInteger
+import util.factorial
 
 // https://projecteuler.net/problem=15
 fun main() {
@@ -14,12 +14,5 @@ fun main() {
     // -------------------------
     //       20!
 
-    val top = (21..40)
-        .map { BigInteger.valueOf(it.toLong()) }
-        .reduce { acc, i -> acc * i }
-    val bottom = (1..20)
-        .map { BigInteger.valueOf(it.toLong()) }
-        .reduce { acc, i -> acc * i }
-
-    println(top / bottom)
+    println(factorial(21..40) / factorial(20))
 }

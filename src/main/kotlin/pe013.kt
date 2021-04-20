@@ -2,7 +2,7 @@
 fun main() {
     onehundredNumbers
         .lines()
-        .map { s -> s.toBigInteger() }
+        .map(String::toBigInteger)
         .reduce { acc, bigInteger -> acc + bigInteger }
         .toString()
         .substring(0, 10)
