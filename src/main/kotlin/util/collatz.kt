@@ -13,5 +13,5 @@ fun collatzOf(n: Long): Sequence<Long> {
 }
 
 fun main() {
-    println(collatzOf(871).toList())
+    println(collatzOf(100).toList())
 }

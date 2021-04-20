@@ -14,3 +14,10 @@ fun fibonacciAsBigIntegers(): Sequence<BigInteger> {
     return generateSequence(Pair(BigInteger.ZERO, BigInteger.ONE)) { Pair(it.second, it.first + it.second) }
         .map { it.first }
 }
+
+fun main() {
+    fibonacci()
+        .take(20)
+        .toList()
+        .let { println(it) }
+}

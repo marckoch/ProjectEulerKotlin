@@ -29,3 +29,10 @@ fun primes(): Sequence<Long> {
             .forEach { yield(it) }
     }
 }
+
+fun main() {
+    primes()
+        .take(20)
+        .toList()
+        .let { println(it) }
+}
