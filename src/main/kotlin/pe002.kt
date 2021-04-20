@@ -1,3 +1,5 @@
+import util.fibonacci
+
 // https://projecteuler.net/problem=2
 fun main() {
     println(sumOfEvenFibonaccisUpTo(4_000_000))
@@ -10,15 +12,7 @@ fun main() {
         .let { println(it) }
 }
 
-// get fibonacci numbers as sequence
-// 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181, 6765, 10946, ...
-// https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.sequences/partition.html
-fun fibonacci(): Sequence<Int> {
-    return generateSequence(Pair(0, 1)) { Pair(it.second, it.first + it.second) }
-        .map { it.first }
-}
-
-val isEven = { x: Int -> x % 2 == 0 }
+val isEven = { x: Long -> x % 2L == 0L }
 
 // old school:
 // disadvantage: setting the limit, filtering (only even) and operation (summing them up) is all intertwined
