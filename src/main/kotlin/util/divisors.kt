@@ -24,9 +24,18 @@ fun getDivisorsOf(n: Int): Set<Int> {
         .toSortedSet()
 }
 
+// n itself is excluded
+// e.g. getProperDivisorsOf(220) = [1, 2, 4, 5, 10, 11, 20, 22, 44, 55, 110]
+fun getProperDivisorsOf(n: Int): Set<Int> {
+    return getDivisorsOf(n)
+        .filter { it != n }
+        .toSortedSet()
+}
+
 fun main() {
-    val n = 12340
+    val n = 220
     println(getDivisorsOf(n))
+    println(getProperDivisorsOf(n))
     println(getDiv(n))
 }
 
