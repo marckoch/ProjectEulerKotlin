@@ -1,6 +1,6 @@
 import util.fibonacciAsBigIntegers
 
-// https://projecteuler.net/problem=24
+// https://projecteuler.net/problem=25
 fun main() {
     fibonacciAsBigIntegers()
         .withIndex()
