@@ -1,5 +1,6 @@
 package util
 
+import java.util.*
 import kotlin.math.floor
 import kotlin.math.sqrt
 
@@ -30,9 +31,40 @@ fun primes(): Sequence<Long> {
     }
 }
 
+// build boolean array indicating that x is prime if arr[x] == true
+// useful when we want to check lots of numbers if they are prime or not
+// https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
+fun isPrime(max: Int): BooleanArray {
+    val isPrime = BooleanArray(max + 1)
+    Arrays.fill(isPrime, true)
+    isPrime[0] = false
+    isPrime[1] = false
+    var p = 2
+    while (p * p <= max) {
+        // p is a prime?
+        if (isPrime[p]) {
+            // then all multiples of p have p as one prime factor and are NO prime
+            var i = p * 2
+            while (i <= max) {
+                isPrime[i] = false
+                i += p
+            }
+        }
+        p++
+    }
+    return isPrime
+}
+
 fun main() {
     primes()
         .take(20)
+        .toList()
+        .let { println(it) }
+
+    isPrime(50)
+        .withIndex()
+        .filter { indexedValue -> indexedValue.value }
+        .map { indexedValue -> indexedValue.index }
         .toList()
         .let { println(it) }
 }
