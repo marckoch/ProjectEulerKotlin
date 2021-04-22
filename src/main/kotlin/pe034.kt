@@ -1,5 +1,6 @@
 import util.factorial
 
+// https://projecteuler.net/problem=34
 fun main() {
     // for upper limit see:
     // https://www.xarg.org/puzzle/project-euler/problem-34/
