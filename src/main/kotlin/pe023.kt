@@ -1,4 +1,5 @@
 import util.getProperDivisorsOf
+import util.memoize
 
 // https://projecteuler.net/problem=23
 fun main() {
@@ -22,13 +23,3 @@ fun isAbundant(n: Int): Boolean {
 
 // isAbundant will be called again and again for small numbers, ideal candidate for memoization!
 val isAbundantMemoized = { n: Int -> isAbundant(n) }.memoize()
-
-// https://jorgecastillo.dev/kotlin-purity-and-function-memoization
-class Memoize1<in T, out R>(val f: (T) -> R) : (T) -> R {
-    private val values = mutableMapOf<T, R>()
-    override fun invoke(x: T): R {
-        return values.getOrPut(x) { f(x) }
-    }
-}
-
-fun <T, R> ((T) -> R).memoize(): (T) -> R = Memoize1(this)
