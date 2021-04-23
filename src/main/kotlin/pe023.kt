@@ -4,22 +4,22 @@ import util.memoize
 // https://projecteuler.net/problem=23
 fun main() {
     // see problem statement: all numbers above 28123 can surely be written as sum of two abundant numbers
-    val limit = 28123
+    val limit = 28123L
 
-    (1..limit)
+    (1L..limit)
         .filter { !isSumOfTwoAbundantNumbers(it) }
         .sum()
         .let { println(it) }
 }
 
-fun isSumOfTwoAbundantNumbers(n: Int): Boolean {
+fun isSumOfTwoAbundantNumbers(n: Long): Boolean {
     return (1..n / 2)
         .any { isAbundantMemoized(it) && isAbundantMemoized(n - it) }
 }
 
-fun isAbundant(n: Int): Boolean {
+fun isAbundant(n: Long): Boolean {
     return getProperDivisorsOf(n).sum() > n
 }
 
 // isAbundant will be called again and again for small numbers, ideal candidate for memoization!
-val isAbundantMemoized = { n: Int -> isAbundant(n) }.memoize()
+val isAbundantMemoized = { n: Long -> isAbundant(n) }.memoize()

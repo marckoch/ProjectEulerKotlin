@@ -3,14 +3,16 @@ package util
 import kotlin.math.floor
 import kotlin.math.sqrt
 
-val triangleNumbers = generateSequence(1) { it + 1 }.map { it * (it + 1) / 2 }
+val triangleNumbers = generateSequence(1L) { it + 1 }.map { triangle(it) }
+
+val triangle = { i: Long ->  i * (i + 1) / 2 }
 
 // https://en.wikipedia.org/wiki/Triangular_number#Triangular_roots_and_tests_for_triangular_numbers
-fun isTriangular(n: Int): Boolean {
+fun isTriangular(n: Long): Boolean {
     return isSquare(8 * n + 1)
 }
 
-fun isSquare(n: Int): Boolean {
+fun isSquare(n: Long): Boolean {
     val s = sqrt(n.toDouble())
     val fl = floor(s)
     return fl == s
@@ -23,7 +25,7 @@ fun main() {
         .toList()
         .let { println(it) }
 
-    (1..20)
+    (1L..20L)
         .withIndex()
         .map { indexedValue -> Pair(indexedValue.index + 1 , isTriangular(indexedValue.value)) }
         .let { println(it) }

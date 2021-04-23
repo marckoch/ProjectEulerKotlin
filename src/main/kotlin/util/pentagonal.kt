@@ -3,7 +3,9 @@ package util
 import kotlin.math.floor
 import kotlin.math.sqrt
 
-val pentagonalNumbers = generateSequence(1L) { it + 1 }.map { it * (3 * it - 1) / 2 }
+val pentagonalNumbers = generateSequence(1L) { it + 1 }.map { pentagonal(it) }
+
+val pentagonal = { i: Long ->  i * (3 * i - 1) / 2 }
 
 fun main() {
     // [1, 5, 12, 22, 35, 51, 70, 92, 117, 145]
@@ -16,5 +18,5 @@ fun main() {
 
 fun isPentagonal(l: Long): Boolean {
     val r = (1 + sqrt(24.0 * l + 1.0)) / 6.0
-    return r - floor(r) == 0.0
+    return r == floor(r)
 }

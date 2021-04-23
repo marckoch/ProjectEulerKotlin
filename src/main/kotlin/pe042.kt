@@ -9,7 +9,7 @@ fun main() {
         .split(",")
         .map { it.replace("\"", "") }
         .map { sumByAlphabeticWeight(it) }
-        .filter { isTriangular(it) }
+        .filter { isTriangular(it.toLong()) }
         .count()
         .let { println(it) }
 }
