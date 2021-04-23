@@ -1,4 +1,5 @@
 import util.charFrequencyOf
+import util.checkIfPrime
 import util.permute
 import util.primes
 
@@ -8,7 +9,7 @@ fun main() {
     for (maxDigit in 2 until 10) {
         permute((1..maxDigit).toList())
             .map { it.joinToString("").toInt() }
-            .filter { checkIfPrime(it) }
+            .filter { checkIfPrime(it.toLong()) }
             // .also { println(it) }
             .maxOrNull()
             .let { println("$maxDigit digits -> $it") }
@@ -31,15 +32,4 @@ fun tooSlow() {
 fun isPandigital(n: Int) {
     charFrequencyOf(n.toString())
         .all { entry -> entry.value == 1 }
-}
-
-// basic prime check. fast enough for our problem here
-fun checkIfPrime(x: Int): Boolean {
-    if (x % 2 == 0) return false
-    var i = 3
-    while (i * i <= x) {
-        if (x % i == 0) return false
-        i += 2
-    }
-    return true
 }

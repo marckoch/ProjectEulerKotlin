@@ -55,6 +55,17 @@ fun isPrime(max: Int): BooleanArray {
     return isPrime
 }
 
+// basic prime check
+fun checkIfPrime(x: Long): Boolean {
+    if (x % 2L == 0L) return false
+    var i = 3
+    while (i * i <= x) {
+        if (x % i == 0L) return false
+        i += 2
+    }
+    return true
+}
+
 fun main() {
     primes()
         .take(20)
