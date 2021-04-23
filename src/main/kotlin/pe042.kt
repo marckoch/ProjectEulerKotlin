@@ -1,0 +1,16 @@
+import util.isTriangular
+import util.sumByAlphabeticWeight
+
+// https://projecteuler.net/problem=42
+fun main() {
+    val fileContent = object {}.javaClass.getResource("pe042_words.txt")!!.readText()
+
+    fileContent
+        .split(",")
+        .map { it.replace("\"", "") }
+        .map { sumByAlphabeticWeight(it) }
+        .filter { isTriangular(it) }
+        .count()
+        .let { println(it) }
+}
+
