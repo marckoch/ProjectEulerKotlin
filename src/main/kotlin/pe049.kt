@@ -1,5 +1,6 @@
 import util.primes
 
+// https://projecteuler.net/problem=49
 fun main() {
     primesWith4digits
         .filter { isFirstOfTriplet(it) }

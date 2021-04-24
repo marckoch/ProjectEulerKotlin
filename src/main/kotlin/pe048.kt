@@ -1,5 +1,6 @@
 import java.math.BigInteger
 
+// https://projecteuler.net/problem=48
 fun main() {
     (1..1000)
         .map { i -> selfExp(i) }
