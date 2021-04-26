@@ -1,4 +1,6 @@
-import util.permute
+package pe032
+
+import util.permutations.permute
 
 // https://projecteuler.net/problem=32
 fun main() {

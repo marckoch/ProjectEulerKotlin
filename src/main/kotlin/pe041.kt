@@ -1,7 +1,9 @@
-import util.charFrequencyOf
-import util.checkIfPrime
-import util.permute
-import util.primes
+package pe041
+
+import util.frequency.charFrequencyOf
+import util.permutations.permute
+import util.primes.checkIfPrime
+import util.primes.primes
 
 // https://projecteuler.net/problem=41
 fun main() {
@@ -29,7 +31,7 @@ fun tooSlow() {
 }
 
 // a number is pandigital if all its digits occur exactly once
-fun isPandigital(n: Int) {
-    charFrequencyOf(n.toString())
+fun isPandigital(n: String): Boolean {
+    return charFrequencyOf(n)
         .all { entry -> entry.value == 1 }
 }

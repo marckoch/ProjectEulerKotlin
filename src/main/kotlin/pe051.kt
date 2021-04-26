@@ -1,6 +1,8 @@
-import util.checkIfPrime
-import util.combinations
-import util.primes
+package pe051
+
+import util.combinations.combinations
+import util.primes.checkIfPrime
+import util.primes.primes
 
 // https://projecteuler.net/problem=51
 fun main() {

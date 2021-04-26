@@ -1,4 +1,4 @@
-package util
+package util.combinations
 
 import java.util.LinkedList
 

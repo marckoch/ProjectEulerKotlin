@@ -1,4 +1,6 @@
-import util.getProperDivisorsOf
+package pe021
+
+import util.divisors.getProperDivisorsOf
 
 // https://projecteuler.net/problem=21
 fun main() {

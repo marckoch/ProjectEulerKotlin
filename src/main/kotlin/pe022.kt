@@ -1,4 +1,6 @@
-import util.sumByAlphabeticWeight
+package pe022
+
+import util.chars.sumByAlphabeticWeight
 
 // https://projecteuler.net/problem=22
 fun main() {

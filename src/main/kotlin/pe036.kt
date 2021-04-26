@@ -1,3 +1,5 @@
+package pe036
+
 // https://projecteuler.net/problem=36
 fun main() {
     (1..1_000_000)

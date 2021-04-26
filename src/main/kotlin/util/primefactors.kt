@@ -1,5 +1,6 @@
-package util
+package util.primefactorization
 
+import util.primes.primes
 import kotlin.collections.HashSet
 
 // nice but too slow

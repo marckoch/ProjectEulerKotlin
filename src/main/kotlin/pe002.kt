@@ -1,4 +1,6 @@
-import util.fibonacci
+package pe002
+
+import util.fibonacci.fibonacci
 
 // https://projecteuler.net/problem=2
 fun main() {

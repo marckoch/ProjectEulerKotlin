@@ -1,4 +1,4 @@
-package util
+package util.permutations
 
 import java.math.BigInteger
 

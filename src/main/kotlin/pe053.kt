@@ -1,4 +1,6 @@
-import util.factorial
+package pe053
+
+import util.factorial.factorial
 import java.math.BigInteger
 
 // https://projecteuler.net/problem=53

@@ -1,4 +1,6 @@
-import util.primes
+package pe049
+
+import util.primes.primes
 
 // https://projecteuler.net/problem=49
 fun main() {

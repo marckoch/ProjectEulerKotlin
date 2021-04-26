@@ -1,4 +1,4 @@
-package util
+package util.frequency
 
 fun charFrequencyOf(s: String) = s.groupingBy { it }.eachCount()
 

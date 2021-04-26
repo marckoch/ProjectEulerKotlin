@@ -1,4 +1,6 @@
-import util.reduceFraction
+package pe033
+
+import util.fraction.reduceFraction
 
 // https://projecteuler.net/problem=33
 fun main() {

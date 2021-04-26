@@ -1,3 +1,5 @@
+package pe013
+
 // https://projecteuler.net/problem=13
 fun main() {
     onehundredNumbers

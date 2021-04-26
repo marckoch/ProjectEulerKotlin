@@ -1,4 +1,6 @@
-import util.collatzOf
+package pe014
+
+import util.collatz.collatzOf
 
 // https://projecteuler.net/problem=14
 fun main() {

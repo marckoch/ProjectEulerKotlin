@@ -1,3 +1,5 @@
+package pe038
+
 // https://projecteuler.net/problem=38
 fun main() {
     // n > 1 means we have at least x followed by 2*x, but we must not exceed 9 digits

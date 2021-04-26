@@ -1,3 +1,5 @@
+package pe005
+
 // https://projecteuler.net/problem=5
 fun main() {
     // idea: get primes below 20 and produce max multiples of each prime that is below 20

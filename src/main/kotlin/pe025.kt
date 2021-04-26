@@ -1,4 +1,6 @@
-import util.fibonacciAsBigIntegers
+package pe025
+
+import util.fibonacci.fibonacciAsBigIntegers
 
 // https://projecteuler.net/problem=25
 fun main() {

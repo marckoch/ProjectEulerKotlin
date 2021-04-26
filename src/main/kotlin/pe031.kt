@@ -1,3 +1,5 @@
+package pe031
+
 // https://www.educative.io/edpresso/what-is-coins-sums
 // coin sums
 // https://projecteuler.net/problem=31

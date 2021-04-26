@@ -1,5 +1,7 @@
-import util.isTriangular
-import util.sumByAlphabeticWeight
+package pe042
+
+import util.chars.sumByAlphabeticWeight
+import util.triangular.isTriangular
 
 // https://projecteuler.net/problem=42
 fun main() {

@@ -1,4 +1,4 @@
-package util
+package util.gcd
 
 // greatest common divisor
 // https://en.wikipedia.org/wiki/Greatest_common_divisor

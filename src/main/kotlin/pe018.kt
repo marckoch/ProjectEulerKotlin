@@ -1,3 +1,5 @@
+package pe018
+
 // https://projecteuler.net/problem=18
 fun main() {
     val triangle = arrayOf(

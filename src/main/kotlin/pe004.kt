@@ -1,3 +1,5 @@
+package pe004
+
 // https://projecteuler.net/problem=4
 fun main() {
     println(buildPalindromeList().maxOrNull())

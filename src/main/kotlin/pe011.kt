@@ -1,3 +1,5 @@
+package pe011
+
 // https://projecteuler.net/problem=11
 fun main() {
     val matrix = """

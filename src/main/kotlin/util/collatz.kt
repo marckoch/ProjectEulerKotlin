@@ -1,4 +1,4 @@
-package util
+package util.collatz
 
 // https://en.wikipedia.org/wiki/Collatz_conjecture
 fun collatzOf(n: Long): Sequence<Long> {

@@ -1,4 +1,4 @@
-package util
+package util.primes
 
 import java.util.*
 import kotlin.math.floor

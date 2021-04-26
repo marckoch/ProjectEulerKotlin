@@ -1,4 +1,6 @@
-import util.digitSum
+package pe016
+
+import util.digits.digitSum
 import java.math.BigInteger
 
 // https://projecteuler.net/problem=16

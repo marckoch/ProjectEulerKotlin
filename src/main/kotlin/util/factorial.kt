@@ -1,4 +1,4 @@
-package util
+package util.factorial
 
 import java.math.BigInteger
 

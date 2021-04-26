@@ -1,4 +1,6 @@
-import util.getPrimeFactorsOptimized
+package pe047
+
+import util.primefactorization.getPrimeFactorsOptimized
 
 // https://projecteuler.net/problem=47
 fun main() {

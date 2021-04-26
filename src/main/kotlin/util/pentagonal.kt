@@ -1,4 +1,4 @@
-package util
+package util.pentagonal
 
 import kotlin.math.floor
 import kotlin.math.sqrt

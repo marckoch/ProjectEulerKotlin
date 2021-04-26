@@ -1,3 +1,5 @@
+package pe008
+
 // https://projecteuler.net/problem=8
 fun main() {
     val numberWith1000digits = """

@@ -1,4 +1,6 @@
-import util.isPrime
+package pe037
+
+import util.primes.isPrime
 
 // https://projecteuler.net/problem=37
 fun main() {

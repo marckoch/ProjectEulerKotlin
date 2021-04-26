@@ -1,4 +1,4 @@
-package util
+package util.rotations
 
 // note: the conversion to number has be done by caller, because he must handle the case were a "0" is the first digit
 

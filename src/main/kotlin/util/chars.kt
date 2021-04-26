@@ -1,4 +1,4 @@
-package util
+package util.chars
 
 fun sumByAlphabeticWeight(name: String): Int {
     return name

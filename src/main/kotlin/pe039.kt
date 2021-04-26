@@ -1,3 +1,5 @@
+package pe039
+
 // https://projecteuler.net/problem=39
 fun main() {
     val perimeter = 1000

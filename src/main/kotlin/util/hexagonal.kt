@@ -1,4 +1,4 @@
-package util
+package util.hexagonal
 
 import kotlin.math.floor
 import kotlin.math.sqrt

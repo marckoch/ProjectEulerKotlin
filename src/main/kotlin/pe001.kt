@@ -1,3 +1,5 @@
+package pe001
+
 // https://projecteuler.net/problem=1
 fun main() {
     (0 until 1000)

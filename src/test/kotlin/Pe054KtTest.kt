@@ -1,3 +1,5 @@
+package pe054
+
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.DynamicTest.dynamicTest
 import org.junit.jupiter.api.Test
@@ -28,9 +30,4 @@ class Pe054KtTest {
                 assertThat(value(input)).isEqualTo(expected)
             }
         }
-
-    @Test
-    fun testHexValue() {
-        assertThat(hexValue(intArrayOf(1,1,1,1,1))).isEqualTo(12)
-    }
 }

@@ -1,4 +1,4 @@
-package util
+package util.digits
 
 import java.math.BigInteger
 

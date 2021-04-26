@@ -1,5 +1,7 @@
-import util.getProperDivisorsOf
-import util.memoize
+package pe023
+
+import util.divisors.getProperDivisorsOf
+import util.memoize.memoize
 
 // https://projecteuler.net/problem=23
 fun main() {

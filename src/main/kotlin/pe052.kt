@@ -1,3 +1,5 @@
+package pe052
+
 // https://projecteuler.net/problem=52
 fun main() {
     val numberOfMultiples = 6

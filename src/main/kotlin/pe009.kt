@@ -1,3 +1,5 @@
+package pe009
+
 // https://projecteuler.net/problem=9
 fun main() {
     val sideSum = 1000

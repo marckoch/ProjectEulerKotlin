@@ -1,5 +1,7 @@
-import util.permute
-import util.primes
+package pe043
+
+import util.permutations.permute
+import util.primes.primes
 
 // https://projecteuler.net/problem=43
 fun main() {

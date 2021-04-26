@@ -1,4 +1,4 @@
-package util
+package util.divisors
 
 import kotlin.math.sqrt
 

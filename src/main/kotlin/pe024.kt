@@ -1,3 +1,5 @@
+package pe024
+
 // https://projecteuler.net/problem=24
 // https://blogs.scientificamerican.com/roots-of-unity/its-factoradical/
 // https://en.wikipedia.org/wiki/Factorial_number_system

@@ -1,3 +1,5 @@
+package pe054
+
 import java.util.*
 import kotlin.math.pow
 

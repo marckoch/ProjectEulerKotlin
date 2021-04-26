@@ -1,5 +1,7 @@
-import util.isPentagonal
-import util.pentagonalNumbers
+package pe044
+
+import util.pentagonal.isPentagonal
+import util.pentagonal.pentagonalNumbers
 import kotlin.math.abs
 
 // https://projecteuler.net/problem=44

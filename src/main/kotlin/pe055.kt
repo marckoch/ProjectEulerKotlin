@@ -1,3 +1,5 @@
+package pe055
+
 import java.math.BigInteger
 
 // https://projecteuler.net/problem=55

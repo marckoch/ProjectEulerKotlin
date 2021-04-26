@@ -1,5 +1,7 @@
-import util.leftRotationsOf
-import util.isPrime
+package pe035
+
+import util.primes.isPrime
+import util.rotations.leftRotationsOf
 
 // https://projecteuler.net/problem=35
 fun main() {

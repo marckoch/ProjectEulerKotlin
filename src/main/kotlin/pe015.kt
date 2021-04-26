@@ -1,4 +1,6 @@
-import util.factorial
+package pe015
+
+import util.factorial.factorial
 
 // https://projecteuler.net/problem=15
 fun main() {

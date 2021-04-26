@@ -1,4 +1,6 @@
-import util.checkIfPrime
+package pe046
+
+import util.primes.checkIfPrime
 
 // https://projecteuler.net/problem=46
 fun main() {

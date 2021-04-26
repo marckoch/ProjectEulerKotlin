@@ -1,3 +1,5 @@
+package pe026
+
 // https://projecteuler.net/problem=26
 // https://en.wikipedia.org/wiki/Repeating_decimal
 fun main() {

@@ -1,4 +1,6 @@
-package util
+package util.fraction
+
+import util.gcd.gcd
 
 fun reduceFraction(fraction: Pair<Long, Long>): Pair<Long, Long> {
     val d = gcd(fraction.first, fraction.second)

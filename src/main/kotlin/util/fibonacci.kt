@@ -1,4 +1,4 @@
-package util
+package util.fibonacci
 
 import java.math.BigInteger
 

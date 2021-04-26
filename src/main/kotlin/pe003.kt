@@ -1,3 +1,5 @@
+package pe003
+
 // https://projecteuler.net/problem=3
 fun main() {
     println(getLargestPrimeFactor(600851475143))

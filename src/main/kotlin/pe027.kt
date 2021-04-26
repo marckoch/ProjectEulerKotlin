@@ -1,11 +1,13 @@
-import util.cartesianProduct
-import util.isPrime
+package pe027
+
+import util.cartesianProduct.cartesianProductOf
+import util.primes.isPrime
 import kotlin.math.abs
 
 // https://projecteuler.net/problem=27
 fun main() {
     // just brute force it
-    cartesianProduct((-1000..1000).toList(), (-1000..1000).toList())
+    cartesianProductOf((-1000..1000).toList(), (-1000..1000).toList())
         .maxByOrNull { pair -> getMaxLength(pair.first, pair.second) }
         .let { pair ->
             if (pair != null) {

@@ -1,11 +1,11 @@
-package util
+package util.triangular
 
 import kotlin.math.floor
 import kotlin.math.sqrt
 
-val triangleNumbers = generateSequence(1L) { it + 1 }.map { triangle(it) }
+val triangularNumbers = generateSequence(1L) { it + 1 }.map { triangular(it) }
 
-val triangle = { i: Long ->  i * (i + 1) / 2 }
+val triangular = { i: Long ->  i * (i + 1) / 2 }
 
 // https://en.wikipedia.org/wiki/Triangular_number#Triangular_roots_and_tests_for_triangular_numbers
 fun isTriangular(n: Long): Boolean {
@@ -20,7 +20,7 @@ fun isSquare(n: Long): Boolean {
 
 fun main() {
     // [1, 3, 6, 10, 15, 21, 28, 36, 45, 55, 66, 78, 91, 105, 120, 136, 153, 171, 190, 210]
-    triangleNumbers
+    triangularNumbers
         .take(20)
         .toList()
         .let { println(it) }

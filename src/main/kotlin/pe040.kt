@@ -1,3 +1,5 @@
+package pe041
+
 import kotlin.math.pow
 
 // https://projecteuler.net/problem=40

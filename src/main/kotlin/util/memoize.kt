@@ -1,4 +1,4 @@
-package util
+package util.memoize
 
 import kotlin.system.measureTimeMillis
 
