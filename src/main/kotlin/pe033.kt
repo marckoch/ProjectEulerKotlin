@@ -1,5 +1,6 @@
 package pe033
 
+import util.fraction.Fraction
 import util.fraction.reduceFraction
 
 // https://projecteuler.net/problem=33
@@ -87,5 +88,5 @@ fun main() {
         }
     }
 
-    println(reduceFraction(Pair(top.toLong(), bottom.toLong())).second)
+    println(reduceFraction(Fraction(top.toLong(), bottom.toLong())).bottom)
 }
