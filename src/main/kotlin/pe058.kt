@@ -2,6 +2,7 @@ package pe058
 
 import util.primes.checkIfPrime
 
+// https://projecteuler.net/problem=58
 fun main() {
     val targetPercentage = 10
 
