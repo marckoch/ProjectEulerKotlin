@@ -25,6 +25,8 @@ inline fun <reified T> combinations(arr: Array<T>, m: Int) = sequence {
     }
 }
 
+inline fun <reified T> combinations(l: List<T>, m: Int) = combinations(l.toTypedArray(), m)
+
 fun combinations(n: Int, m: Int) = combinations((1..n).toList().toTypedArray(), m)
 
 fun combinations(a: IntArray, m: Int) = combinations(a.toList().toTypedArray(), m)
