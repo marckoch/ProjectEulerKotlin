@@ -1,3 +1,5 @@
+package pe060
+
 import util.primes.checkIfPrime
 import util.primes.primes
 
