@@ -2,6 +2,8 @@ package util.convergents
 
 import util.fraction.Fraction
 import java.math.BigInteger
+import kotlin.math.floor
+import kotlin.math.sqrt
 
 fun main() {
     convergentOfE.take(10).forEach { println(it) }
@@ -17,7 +19,7 @@ val convergentOfE = generateSequence(1) { it + 1 }
 // first is the first number (1 in convergent of 2)
 // getConvergenceNumber is a function that returns the i-th conv number, for sqrt(2) this is always 2
 val convergentOfSqrt2 = generateSequence(1) { it + 1 }
-    .map { i -> getConvergentBI(i, 1, ::getConvergenceNumberOfSqrt2) }
+    .map { i -> getConvergentBI(i, floor(sqrt(2.0)).toInt(), ::getConvergenceNumberOfSqrt2) }
 
 fun getConvergentBI(n: Int, first: Int, getConvergenceNumber: (Int) -> Long): Fraction<BigInteger> {
     if (n == 1) return Fraction(BigInteger.valueOf(first.toLong()), BigInteger.ONE)
@@ -44,7 +46,6 @@ fun getConvergenceNumberOfE(n: Int): Long {
 fun getConvergenceNumberOfSqrt2(n: Int): Long {
     return 2L
 }
-
 
 //      4)   3 * 5   4   (3 * 5) + 4
 // f(3, -) = ----- + - = -----------
