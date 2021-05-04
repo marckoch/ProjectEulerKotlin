@@ -3,8 +3,12 @@ package util.fraction
 import util.gcd.gcd
 import java.math.BigInteger
 
-data class Fraction<out T>(val top: T, val bottom: T) {
+data class Fraction<T: Number>(val top: T, val bottom: T) {
     fun invert() = Fraction(bottom, top)
+
+    fun value(): Double {
+        return top.toDouble() / bottom.toDouble()
+    }
 
     override fun toString(): String {
         return "$top/$bottom"
