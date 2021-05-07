@@ -2,6 +2,7 @@ package pe074
 
 import util.factorial.factorial
 
+// https://projecteuler.net/problem=74
 fun main() {
     val factorials = get10Factorials()
 

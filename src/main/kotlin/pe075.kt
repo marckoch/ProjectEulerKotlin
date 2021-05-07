@@ -2,6 +2,7 @@ package pe075
 
 import util.gcd.gcd
 
+// https://projecteuler.net/problem=75
 fun main() {
     buildPerimeterFrequency(1_500_000)
         .count { i -> i == 1 }

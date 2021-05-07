@@ -2,6 +2,7 @@ package pe073
 
 import util.fraction.Fraction
 
+// https://projecteuler.net/problem=73
 fun main() {
     fareyNaiveStart(2, 12000)
 }
