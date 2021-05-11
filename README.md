@@ -4,7 +4,7 @@ Solutions in Kotlin for several Project Euler problems, see https://projecteuler
 
 run by executing
 
-    gradle run -PmainClass=Pe<number of problem as 000>Kt
+    gradle run -PmainClass=Pe<number of problem as 000Kt
     
     # e.g.
     gradle run -PmainClass=Pe002Kt
