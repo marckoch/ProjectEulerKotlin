@@ -9,139 +9,134 @@ fun main() {
     solveProjectEuler(diceSize)
 }
 
-private const val DIM = 40
-private const val ROUNDS = 10_000_000
 private val random = Random(System.currentTimeMillis())
-
-// our board
-private const val POS_GO = 0
-private const val POS_R1 = 5
-private const val POS_R2 = POS_R1 + 10
-private const val POS_R3 = POS_R2 + 10
-private const val POS_R4 = POS_R3 + 10
-private const val POS_JAIL = 10
-private const val POS_FP = 20
-private const val POS_C1 = POS_JAIL + 1
-private const val POS_FREE_PARKING = 20
-private const val POS_E3 = POS_FREE_PARKING + 4
-private const val POS_H2 = 39
-private const val POS_U1 = POS_JAIL + 2
-private const val POS_U2 = POS_R3 + 3
-private const val POS_GO2JAIL = 30
-private const val POS_CH1 = POS_R1 + 2
-private const val POS_CH2 = POS_FP + 2
-private const val POS_CH3 = POS_R4 + 1
-private const val POS_CC1 = 2
-private const val POS_CC2 = POS_R2 + 2
-private const val POS_CC3 = POS_GO2JAIL + 3
+// private val random = Random(1L) // use this for deterministic (non random) results
 
 fun solveProjectEuler(diceSize: Int) {
-    val board = IntArray(DIM)
-    var pos = 0
+    val game = Game()
 
-    // println(board.contentToString())
-
-    // we roll the dice
-    repeat(ROUNDS) {
+    repeat(10_000_000) {
         val dice1 = rollDice(diceSize)
         val dice2 = rollDice(diceSize)
 
-        pos = (pos + dice1 + dice2) % DIM
-
-        pos = processSpecialFields(pos)
-
-        board[pos]++
+        game.move(dice1, dice2)
     }
 
-    // println(board.contentToString())
-
-    showTop5Fields(board)
-    showResult(board)
-}
-
-// we handle special fields (like "go to jail", etc.) that might change the position
-private fun processSpecialFields(pos: Int): Int {
-    return when (pos) {
-        POS_CC1, POS_CC2, POS_CC3 -> drawCommunityCard(pos)
-        POS_CH1, POS_CH2, POS_CH3 -> drawChanceCard(pos)
-        POS_GO2JAIL -> POS_JAIL
-        else -> pos
-    }
-}
-
-private fun drawCommunityCard(pos: Int): Int {
-    return when (drawCommunityCard()) {
-        0 -> POS_GO
-        1 -> POS_JAIL
-        else -> pos // other card, no change in pos
-    }
-}
-
-private fun drawChanceCard(pos: Int): Int {
-    return when (drawChanceCard()) {
-        0 -> POS_GO
-        1 -> POS_JAIL
-        2 -> POS_C1
-        3 -> POS_E3
-        4 -> POS_H2
-        5 -> POS_R1
-        6, 7 -> goToNextRailroad(pos)
-        8 -> goToNextUtility(pos)
-        9 ->  goBackThreeFields(pos)
-        else -> pos
-    }
-}
-
-private fun goToNextRailroad(pos: Int): Int {
-    return when (pos) {
-        POS_CH1 -> POS_R2
-        POS_CH2 -> POS_R3
-        POS_CH3 -> POS_R1
-        else -> throw IllegalStateException("illegal position: $pos is not a chance field!")
-    }
-}
-
-private fun goToNextUtility(pos: Int): Int {
-    return when (pos) {
-        POS_CH1 -> POS_U1
-        POS_CH2 -> POS_U2
-        POS_CH3 -> POS_U1
-        else -> throw IllegalStateException("illegal position: $pos is not a chance field!")
-    }
-}
-
-private fun goBackThreeFields(pos: Int): Int {
-    return (pos - 3) % DIM
+    game.showTop5Fields()
+    game.showResult()
 }
 
 private fun rollDice(diceSize: Int): Int {
     return random.nextInt(diceSize) + 1
 }
 
-private fun drawCommunityCard(): Int {
-    return random.nextInt(16)
-}
+// warning: we use ordinal, which seems OK here, because the board is fixed.
+// no one will ever insert some random new field in the middle.
+// the values of the enum automatically form an array, which is exactly what we need here.
+class Game {
+    enum class Field {
+        GO, A1, CC1, A2, T1, R1, B1, CH1, B2, B3,
+        JAIL, C1, U1, C2, C3, R2, D1, CC2, D2, D3,
+        FP, E1, CH2, E2, E3, R3, F1, F2, U2, F3,
+        GO2JAIL, G1, G2, CC3, G3, R4, CH3, H1, T2, H2
+    }
 
-private fun drawChanceCard(): Int {
-    return random.nextInt(16)
-}
+    private val size = Field.values().size
+    private var pos = 0
+    private val frequencies = IntArray(size)
 
-private fun showTop5Fields(board: IntArray) {
-    board.withIndex()
-        .sortedBy { it.value }
-        .reversed()
-        .take(5)
-        .map { "field ${it.index} count=${it.value} freq=${it.value.toDouble() * 100.0 / ROUNDS} %" }
-        .forEach { println(it) }
-}
+    fun move(dice1: Int, dice2: Int) {
+        pos = (pos + dice1 + dice2) % size
 
-// show result as requested in project euler problem statement
-private fun showResult(board: IntArray) {
-    board.withIndex()
-        .sortedBy { it.value }
-        .reversed()
-        .take(3)
-        .map { indexedValue -> indexedValue.index }
-        .joinToString("")
-        .let { println(it) }
+        val newField = processSpecialFields(Field.values()[pos])
+        pos = newField.ordinal
+
+        frequencies[pos]++
+    }
+
+    // we handle special fields (like "go to jail", etc.) that might change the position
+    private fun processSpecialFields(field: Field): Field {
+        return when (field) {
+            Field.CC1, Field.CC2, Field.CC3 -> drawCommunityCard(field)
+            Field.CH1, Field.CH2, Field.CH3 -> drawChanceCard(field)
+            Field.GO2JAIL -> Field.JAIL
+            else -> field
+        }
+    }
+
+    private fun drawCommunityCard(field: Field): Field {
+        return when (drawCommunityCard()) {
+            0 -> Field.GO
+            1 -> Field.JAIL
+            else -> field // other card, no change in pos
+        }
+    }
+
+    private fun drawChanceCard(field: Field): Field {
+        return when (drawChanceCard()) {
+            0 -> Field.GO
+            1 -> Field.JAIL
+            2 -> Field.C1
+            3 -> Field.E3
+            4 -> Field.H2
+            5 -> Field.R1
+            6, 7 -> goToNextRailroad(field)
+            8 -> goToNextUtility(field)
+            9 ->  goBackThreeFields(field)
+            else -> field
+        }
+    }
+
+    private fun goToNextRailroad(field: Field): Field {
+        return when (field) {
+            Field.CH1 -> Field.R2
+            Field.CH2 -> Field.R3
+            Field.CH3 -> Field.R1
+            else -> throw IllegalStateException("illegal position: $field is not a chance field!")
+        }
+    }
+
+    private fun goToNextUtility(field: Field): Field {
+        return when (field) {
+            Field.CH1 -> Field.U1
+            Field.CH2 -> Field.U2
+            Field.CH3 -> Field.U1
+            else -> throw IllegalStateException("illegal position: $field is not a chance field!")
+        }
+    }
+
+    private fun goBackThreeFields(field: Field): Field {
+        val position = field.ordinal
+        val newPosition = position - 3 % size
+        return Field.values()[newPosition]
+    }
+
+    private fun drawCommunityCard(): Int {
+        return random.nextInt(16)
+    }
+
+    private fun drawChanceCard(): Int {
+        return random.nextInt(16)
+    }
+
+    fun showTop5Fields() {
+        val noOfRounds = frequencies.sum()
+        frequencies.withIndex()
+            .sortedBy { it.value }
+            .reversed()
+            .take(5)
+            .map { "field ${it.index} count=${it.value} freq=${it.value.toDouble() * 100.0 / noOfRounds} %" }
+            .forEach { println(it) }
+    }
+
+    // show result as requested in project euler problem statement
+    fun showResult() {
+        frequencies.withIndex()
+            .sortedBy { it.value }
+            .reversed()
+            .take(3)
+            .map { indexedValue -> indexedValue.index }
+            .joinToString("")
+            .let { println(it) }
+    }
 }
