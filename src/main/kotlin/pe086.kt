@@ -26,7 +26,7 @@ fun solveBruteForce(target: Int): Int {
 
                 val root = sqrt(sum.toDouble())
                 if (root == floor(root)) {
-                    //System.err.println("" + x + "^2 + (" + y + "+" + z + ")^2 == " + (int) root + "^2  == " + sum);
+                    // System.err.println("$x^2 + ($y+$z)^2 == $root^2  == $sum")
                     matches++
                 }
             }
