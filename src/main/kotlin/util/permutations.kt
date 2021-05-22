@@ -16,7 +16,7 @@ fun <T> permute(input: List<T>): List<List<T>> {
             perms.add(newPerm)
         }
     }
-    return perms.sortedBy(List<T>::toString)
+    return perms
 }
 
 fun main() {
