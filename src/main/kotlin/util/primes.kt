@@ -58,10 +58,31 @@ fun isPrime(max: Int): BooleanArray {
 // basic prime check
 fun checkIfPrime(x: Long): Boolean {
     if (x % 2L == 0L) return false
-    var i = 3
+    var i = 3L
     while (i * i <= x) {
         if (x % i == 0L) return false
         i += 2
+    }
+    return true
+}
+
+fun checkIfPrime2(n: Long): Boolean {
+    if (n < 2) {
+        return false
+    }
+    if (n == 2L || n == 3L) {
+        return true
+    }
+    if (n % 2 == 0L || n % 3 == 0L) {
+        return false
+    }
+    val sqrtN = sqrt(n.toDouble()).toLong() + 1
+    var i = 6L
+    while (i <= sqrtN) {
+        if (n % (i - 1) == 0L || n % (i + 1) == 0L) {
+            return false
+        }
+        i += 6
     }
     return true
 }
