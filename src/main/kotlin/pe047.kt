@@ -1,6 +1,6 @@
 package pe047
 
-import util.primefactorization.getPrimeFactorsOptimized
+import util.primefactorization.getPrimeFactors
 
 // https://projecteuler.net/problem=47
 fun main() {
@@ -10,6 +10,6 @@ fun main() {
     val numbers = generateSequence(1) { it + 1 }
     numbers
         .windowed(N, 1)
-        .first { list -> list.all { getPrimeFactorsOptimized(it.toLong()).size == N } }
+        .first { list -> list.all { getPrimeFactors(it.toLong()).distinct().size == N } }
         .let { println(it) }
 }

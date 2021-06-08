@@ -1,9 +1,9 @@
 package util.radical
 
-import util.primefactorization.getPrimeFactorsOptimized
+import util.primefactorization.getPrimeFactors
 
 fun getRadical(n: Long): Long {
-    return getPrimeFactorsOptimized(n).distinct().fold(1L) { a, b -> a * b }
+    return getPrimeFactors(n).distinct().fold(1L) { a, b -> a * b }
 }
 
 fun main() {

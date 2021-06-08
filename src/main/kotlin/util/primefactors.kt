@@ -1,7 +1,6 @@
 package util.primefactorization
 
 import util.primes.primes
-import kotlin.collections.HashSet
 
 // nice but too slow
 fun getPrimeFactorsSlow(x: Long): Set<Long> {
@@ -13,10 +12,10 @@ fun getPrimeFactorsSlow(x: Long): Set<Long> {
 }
 
 // just iterate through primes and keep dividing the number
-fun getPrimeFactorsOptimized(number: Long): Set<Long> {
+fun getPrimeFactors(number: Long): List<Long> {
     var n = number
     val primesIt = primes().iterator()
-    val factors: MutableSet<Long> = HashSet()
+    val factors: MutableList<Long> = ArrayList()
 
     do {
         val prime: Long = primesIt.next()
@@ -30,13 +29,13 @@ fun getPrimeFactorsOptimized(number: Long): Set<Long> {
         factors.add(n)
     }
 
-    return factors.toSortedSet()
+    return factors
 }
 
 fun main() {
-    println(getPrimeFactorsOptimized(100L))
-    println(getPrimeFactorsOptimized(101L))
-    println(getPrimeFactorsOptimized(121L))
-    println(getPrimeFactorsOptimized(122L))
-    println(getPrimeFactorsOptimized(101010010L))
+    println(getPrimeFactors(100L))
+    println(getPrimeFactors(101L))
+    println(getPrimeFactors(121L))
+    println(getPrimeFactors(122L))
+    println(getPrimeFactors(101010010L))
 }
