@@ -1,5 +1,6 @@
 package pe112
 
+import util.digits.digits
 import kotlin.system.measureTimeMillis
 
 // https://projecteuler.net/problem=112
@@ -77,21 +78,6 @@ private fun hasDecreasingDigits(number: Long): Boolean {
         if (digits[i] < digits[i + 1]) return false
     }
     return true
-}
-
-// we split a Long into its digits
-// e.g. 3241L -> (3,2,4,1)
-private fun digits(number: Long): IntArray {
-    var n = number
-    val digitCount = countDigits(n)
-    val result = IntArray(digitCount)
-    var index = 0
-    while (n > 0) {
-        val lastDigit = n.toInt() % 10
-        result[digitCount - 1 - index++] = lastDigit
-        n /= 10
-    }
-    return result
 }
 
 fun countDigits(number: Long): Int {
