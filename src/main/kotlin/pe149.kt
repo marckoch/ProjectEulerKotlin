@@ -107,11 +107,11 @@ fun findMaxSum(matrix: Array<Array<Long>>): Long {
     println(diagSum1.contentToString())
     println(diagSum2.contentToString())
 
-    println(rowSum.max())
-    println(colSum.max())
-    println(diagSum1.max())
-    println(diagSum2.max())
-    val max = maxOf(rowSum.max()!!, colSum.max()!!, diagSum1.max()!!, diagSum2.max()!!)
+    println(rowSum.maxOrNull())
+    println(colSum.maxOrNull())
+    println(diagSum1.maxOrNull())
+    println(diagSum2.maxOrNull())
+    val max = maxOf(rowSum.maxOrNull()!!, colSum.maxOrNull()!!, diagSum1.maxOrNull()!!, diagSum2.maxOrNull()!!)
 
     if (rowSum.contains(max)) println("row : ${rowSum.indexOf(max)}")
     if (colSum.contains(max)) println("col : ${colSum.indexOf(max)}")

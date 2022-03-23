@@ -34,27 +34,27 @@ fun solveProjectEuler(limit: Int) {
     val validChainsByLength = validChains.groupBy { list -> list.size }
     // println(validChainsByLength)
 
-    val maxLength = validChainsByLength.keys.max()
+    val maxLength = validChainsByLength.keys.maxOrNull()
     println("max validChainsByLength=$maxLength")
 
     val maxValidChains = validChainsByLength[maxLength]!!
     println(maxValidChains.size.toString() + " chains of maxlength found: " + maxValidChains)
 
-    val minOfLongestValidChain = maxValidChains[0].min()
+    val minOfLongestValidChain = maxValidChains[0].minOrNull()
     println("min of longest valid chain=$minOfLongestValidChain")
 
     // TODO: we detect each cycle multiple times, once for each number :-(
     val cyclesByLength = cycles.groupBy { obj -> obj.size }
     println(cyclesByLength)
 
-    val maxCycleLength = cyclesByLength.keys.max()
+    val maxCycleLength = cyclesByLength.keys.maxOrNull()
     println(maxCycleLength)
 
     val cyclesWithMaxLength = cyclesByLength[maxCycleLength]!!
     println("${cyclesWithMaxLength.size} cycles with max length of $maxCycleLength");
 
     // max cycle has length 28 and occurs 28 times, we just take the first one
-    println(cyclesWithMaxLength[0].min())
+    println(cyclesWithMaxLength[0].minOrNull())
 }
 
 fun buildChain(N: Int): List<Int> {
